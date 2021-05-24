@@ -45,6 +45,7 @@ workflows:
       - build
       - test:
           requires:
+              context: deploy-frontend-dev
             - build
       - deploy:
           requires:
