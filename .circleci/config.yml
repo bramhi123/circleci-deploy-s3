@@ -44,8 +44,8 @@ workflows:
     jobs:
       - build
       - test:
+          context: myfreeawsaccess
           requires:
-              context: deploy-frontend-dev
             - build
       - deploy:
           requires:
