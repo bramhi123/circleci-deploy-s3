@@ -13,6 +13,10 @@ jobs:
             sudo apt install python3-pip
             sudo pip3 install awsebcli --upgrade
       - run: cd ./app && npm install && npm run build
+      - save_cache:
+          key: npm-cache{{ .Branch }}-{{ checksum ./app "package.json" }}
+          paths:
+            - node_modules
       - persist_to_workspace:
           root: .
           paths:
